@@ -10,10 +10,13 @@
         <ksession name="HelloWorldKS"/>
     </kbase>
 
-    <kbase name="rules3"  packages="rules.blog" >
+    <kbase name="rules3"  packages="com.drools.attribute.noloop.test1" >
         <ksession name="noLoopSession"/>
     </kbase>
 
+    <kbase name="noLoop2"  packages="com.drools.attribute.noloop.test2" >
+        <ksession name="noLoopSession2"/>
+    </kbase>
 
 
 </kmodule>

@@ -1,4 +1,4 @@
-package rules.blog
+package com.drools.attribute.noloop.test1
 
 import com.secbro.drools.model.Product;
 

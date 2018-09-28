@@ -1,0 +1,13 @@
+package com.drools.attribute.noloop.test2
+
+import com.secbro.drools.model.Product;
+
+rule "updateDistcount2"
+    no-loop false
+    when
+        productObj:Product(discount > 0);
+    then
+        productObj.setDiscount(productObj.getDiscount() + 1);
+        System.out.println(productObj.getDiscount());
+        update(productObj);
+    end
