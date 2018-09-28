@@ -19,4 +19,29 @@
     </kbase>
 
 
+    <kbase name="lockOnActive1"  packages="com.drools.attribute.lockOnActive.test1" >
+        <ksession name="lockOnActive1-session"/>
+    </kbase>
+    <kbase name="lockOnActive2"  packages="com.drools.attribute.lockOnActive.test2" >
+        <ksession name="lockOnActive2-session"/>
+    </kbase>
+
+
+    <kbase name="StateAgendaGroupKB" packages="org.drools.examples.state.agendagroup">
+        <ksession name="StateAgendaGroupKS"/>
+    </kbase>
+
+
+    <kbase name="agendaGroup1"  packages="com.drools.attribute.agendaGroup.test1" >
+        <ksession name="agendaGroup1-session"/>
+    </kbase>
+    <kbase name="agendaGroup2"  packages="com.drools.attribute.agendaGroup.test2" >
+        <ksession name="agendaGroup2-session"/>
+    </kbase>
+    <kbase name="agendaGroup3"  packages="com.drools.attribute.agendaGroup.test3" >
+        <ksession name="agendaGroup3-session"/>
+    </kbase>
+
+
+
 </kmodule>

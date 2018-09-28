@@ -1,0 +1,24 @@
+package com.drools.attribute.agendaGroup.test2
+
+rule "test agenda-group"
+    agenda-group "abc"
+    when
+    then
+        System.out.println("规则test agenda-group 1被触发");
+    end
+
+rule "test1 agenda-group"
+    agenda-group "abc"
+    when
+    then
+        System.out.println("规则test agenda-group 2被触发");
+    end
+
+
+
+rule otherRule
+
+    when
+    then
+        System.out.println("其他规则被触发");
+    end

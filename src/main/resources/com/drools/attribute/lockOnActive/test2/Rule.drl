@@ -1,0 +1,22 @@
+package com.rules
+
+import com.secbro.drools.model.Product;
+
+rule rule1
+    no-loop true
+    when
+        obj : Product(discount > 0);
+    then
+        obj.setDiscount(obj.getDiscount() + 1);
+        System.out.println("新折扣为：" + obj.getDiscount());
+        update(obj);
+    end
+
+
+rule rule2
+    lock-on-active true
+    when
+        productObj : Product(discount > 1);
+    then
+        System.out.println("其他规则被触发了" + productObj.getDiscount());
+    end
