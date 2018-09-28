@@ -143,6 +143,7 @@ public class TestAgendaGroup {
      商品GOLD的商品折扣为10%。
 
      salience 越大 越先执行
+
      */
     @Test
     public void onLoopTest4() {
