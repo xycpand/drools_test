@@ -43,5 +43,16 @@
     </kbase>
 
 
+    <kbase name="school"  packages="com.rules" >
+        <ksession name="test1"/>
+    </kbase>
+    <kbase name="test2"  packages="com.rules" >
+        <ksession name="test2"/>
+    </kbase>
+
+    <kbase name="test3"  packages="com.rules" >
+        <ksession name="test3"/>
+    </kbase>
+
 
 </kmodule>

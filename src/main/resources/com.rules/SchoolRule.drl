@@ -1,0 +1,13 @@
+package com.rules
+
+
+import entity.School
+import entity.Person
+
+rule test001
+    when
+        $s:School();
+        $p:Person(name contains $s.name);
+    then
+        System.out.println("恭喜你，成功的使用了 contains");
+end
