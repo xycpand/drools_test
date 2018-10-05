@@ -54,5 +54,42 @@
         <ksession name="test3"/>
     </kbase>
 
+    <!-- 复杂事件处理 -->
+    <kbase name="test4" eventProcessingMode="stream"  packages="com.rules" >
+        <ksession name="test4" type="stateful"/>
+    </kbase>
+    <kbase name="complex2" eventProcessingMode="stream"  packages="com.complex.event" >
+        <ksession name="complex2" type="stateful" />
+    </kbase>
+
+
+
+    <!-- 定时器 -->
+    <kbase name="rules" eventProcessingMode="stream"  packages="com.rules">
+        <ksession name="time_check"/>
+    </kbase>
+
+
+    <!--DSL买票-->
+    <kbase name="TicketWithDSLKB" packages="com.drools.dsl">
+        <ksession name="TicketWithDSLKS"/>
+    </kbase>
+
+
+    <!--drools与sparkStream集成-->
+    <kbase name="rules11" packages="rules">
+        <ksession name="helloworld"/>
+    </kbase>
+    <kbase name="dtables" packages="dtables">
+        <ksession name="ksession-dtables"/>
+    </kbase>
+    <kbase name="process" packages="process">
+        <ksession name="ksession-process"/>
+    </kbase>
+
+
+
+
+
 
 </kmodule>

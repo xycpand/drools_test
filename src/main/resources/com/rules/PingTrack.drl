@@ -1,0 +1,26 @@
+package com.rules
+
+import entity.Ping
+import entity.School
+
+declare  Ping
+   @role(event)     // 要把插入的数据声明为event，默认是fact,
+//   @expires(20s)    // 用来显示设置事件的过期时间，也就是说过了这个时间，该事件就会从会话中移除，不能再使用
+   @timestamp( datetime )
+end
+
+rule "testComplexEvent2"
+    no-loop true
+    when
+        $a:Ping()
+        $b:Ping( this starts[ 1s ] $a )
+//        $c:Ping( 1 < ($b.getCount() - $a.getCount()))
+//        $c:Ping( 0 < ($b.count - $a.count ))
+    then
+//        System.out.println("---agesss---"+$b);
+//        System.out.println("---agesss---"+$a);
+//        System.out.println("---agesss---"+$c);
+//        System.out.println("---agesss---"+$a.count);
+        System.out.println("---agesss---"+$b.count);
+end
+

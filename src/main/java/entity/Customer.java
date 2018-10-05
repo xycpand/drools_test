@@ -3,24 +3,40 @@ package entity;
 import lombok.Data;
 
 /**
- * Created by lcc on 2018/9/29.
+ * Created by lcc on 2018/10/3.
  */
 @Data
-public  class Customer {
+public class Customer {
 
-    public String name = "";
-    public int money = 0;
-    public int emptyBottle = 0;
-    public int drinkBottleSum = 0;
+    private String name;
+    private String subscription;
 
-    public Customer(String name, int money, int emptyBottle,
-                    int drinkBottleSum) {
+    public Customer() {
+
+    }
+
+    public Customer(final String name,
+
+                    final String subscription) {
         super();
         this.name = name;
-        this.money = money;
-        this.emptyBottle = emptyBottle;
-        this.drinkBottleSum = drinkBottleSum;
+        this.subscription = subscription;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getSubscription() {
+        return this.subscription;
+    }
+
+
+    public String toString() {
+        return "[Customer " + this.name + " : " + this.subscription + "]";
+    }
+
+
 
 
 }

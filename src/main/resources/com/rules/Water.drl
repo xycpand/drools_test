@@ -1,11 +1,11 @@
 package com.rules
 
 dialect "mvel"
-import entity.Customer
+import entity.Customerss
 
 rule "和了一瓶汽水"
     when
-        $c:Customer(money>0,$m:money, $e:emptyBottle, $d :drinkBottleSum);
+        $c:Customerss(money>0,$m:money, $e:emptyBottle, $d :drinkBottleSum);
     then
         $c.money=$m-1;
         $c.emptyBottle=$e+1;
@@ -16,7 +16,7 @@ end
 
 rule "用两个空瓶换了一瓶汽水"
     when
-        $c:Customer(emptyBottle>1,$e:emptyBottle, $d:drinkBottleSum);
+        $c:Customerss(emptyBottle>1,$e:emptyBottle, $d:drinkBottleSum);
     then
         $c.emptyBottle=$e-2+1;
         $c.drinkBottleSum=$d+1;
@@ -27,7 +27,7 @@ end
 rule "结束"
     no-loop true
     when
-         $c:Customer(money<=0,emptyBottle<2);
+         $c:Customerss(money<=0,emptyBottle<2);
     then
          System.out.println("计算结束："+$c.getName()+"有 "+$c.getMoney()+" 元， 有空瓶 "+$c.getEmptyBottle()+" 个， 喝了 "+$c.getDrinkBottleSum()+" 瓶。");
 
