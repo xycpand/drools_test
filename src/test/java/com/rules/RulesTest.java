@@ -357,68 +357,8 @@ public class RulesTest {
 
 
 
-    /**
-     * 测试点：领域语言转换
-     *
-     * @throws InterruptedException
-     */
-    @Test
-    public void languageTest() throws InterruptedException {
-
-        KieContainer kc = KieServices.Factory.get().getKieClasspathContainer();
-        KieSession ksession = kc.newKieSession( "TicketWithDSLKS" );
-
-        final Customer a = new Customer( "刘德华", "Gold" );
-        final Customer b = new Customer( "郭富城", "Platinum" );
-        final Customer c = new Customer( "张学友", "Silver" );
-        final Customer d = new Customer( "黎明", "Silver" );
-
-        final Ticket t1 = new Ticket( a );
-        final Ticket t2 = new Ticket( b );
-        final Ticket t3 = new Ticket( c );
-        final Ticket t4 = new Ticket( d );
-
-        ksession.insert( a );
-        ksession.insert( b );
-        ksession.insert( c );
-        ksession.insert( d );
-
-        ksession.insert( t1 );
-        ksession.insert( t2 );
-        ksession.insert( t3 );
-        ksession.insert( t4 );
-
-        ksession.fireAllRules();
-
-        try {
-            System.err.println( "[[ Sleeping 5 seconds ]]" );
-            Thread.sleep( 5000 );
-        } catch ( final InterruptedException e ) {
-            e.printStackTrace();
-        }
-        System.err.println( "[[ awake ]]" );
-        ksession.fireAllRules();
-        ksession.dispose();
-
-    }
 
 
-
-    @Test
-    public  void execlDirectTest() {
-        DecisionTableConfiguration dtableconfiguration = KnowledgeBuilderFactory.newDecisionTableConfiguration();
-        dtableconfiguration.setInputType(DecisionTableInputType.XLS);//枚举  表示执行的是xls，当然还有一种csv的
-        KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
-        kbuilder.add(ResourceFactory      //add方法  *添加一个给定的资源类型的资源,使用ResourceConfiguration提供
-                        .newClassPathResource("rules/RuleInExcel.xls",  //找到指定目录的xls文件，
-                                RulesTest.class),   //当前类
-                ResourceType.DTABLE, dtableconfiguration);   //xls的标识
-        InternalKnowledgeBase kbase = KnowledgeBaseFactory.newKnowledgeBase();//获取base实现方法
-        kbase.addPackages(kbuilder.getKnowledgePackages());   //将集合添加到KnowledgeBase中
-        StatelessKieSession ksession = kbase.newStatelessKieSession();//通过base获取 kession 实现
-        Person person=new Person("张三",30);
-        ksession.execute(person);
-    }
 
 
 }

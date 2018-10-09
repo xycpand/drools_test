@@ -7,19 +7,15 @@ declare  Person
    @expires(20s)    // 用来显示设置事件的过期时间，也就是说过了这个时间，该事件就会从会话中移除，不能再使用
 end
 
-rule "testComplexEvent"
+
+rule "testComplexEvent3"
+    no-loop true
     when
-        $p:Person() over window:time(3s)
+        $eventA : Person()
+        $eventB : Person( this after[ 0, 4m ] $eventA )
+        over window:time(3s)
     then
-        System.out.println("---age1---"+$p.getCount());
+        System.out.println("---ageA---"+$eventA.toString());
+        System.out.println("---ageB---"+$eventB.toString());
 end
-
-rule "testComplexEvent2"
-    when
-        $eventc:Person() over window:time(3s)
-    then
-        System.out.println("---age2---"+$eventc.getCount());
-end
-
-
 

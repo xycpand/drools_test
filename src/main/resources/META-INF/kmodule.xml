@@ -61,6 +61,9 @@
     <kbase name="complex2" eventProcessingMode="stream"  packages="com.complex.event" >
         <ksession name="complex2" type="stateful" />
     </kbase>
+    <kbase name="complex3" eventProcessingMode="stream"  packages="com.complex.event1" >
+        <ksession name="complex3" type="stateful" />
+    </kbase>
 
 
 
@@ -71,8 +74,14 @@
 
 
     <!--DSL买票-->
-    <kbase name="TicketWithDSLKB" packages="com.drools.dsl">
+    <kbase name="TicketWithDSLKB" packages="com.drools.domain.language.dsl.test1">
         <ksession name="TicketWithDSLKS"/>
+    </kbase>
+
+
+    <!--excel 决策表使用 -->
+    <kbase name="exceltest" packages="com.drools.excel.table.test1">
+        <ksession name="exceltest"/>
     </kbase>
 
 
