@@ -1,6 +1,7 @@
 package com.excel.table;
 
 import entity.Person;
+import entity.PersonForExcel;
 import org.drools.core.impl.InternalKnowledgeBase;
 import org.drools.core.impl.KnowledgeBaseFactory;
 import org.junit.Test;
@@ -89,11 +90,11 @@ public class ExcelTest {
         KieContainer kc = KieServices.Factory.get().getKieClasspathContainer();
         KieSession kieSession = kc.newKieSession( "exceltest" );
 
-        Person p1 = new Person("奥巴马", 68);
-        Person p2 = new Person("普京", 32);
-        Person p3 = new Person("朴槿惠", 18);
-        Person p4 = new Person("川普", 10);
-        Person p5 = new Person("金正恩", 66);
+        PersonForExcel p1 = new PersonForExcel("奥巴马", 68);
+        PersonForExcel p2 = new PersonForExcel("普京", 32);
+        PersonForExcel p3 = new PersonForExcel("朴槿惠", 18);
+        PersonForExcel p4 = new PersonForExcel("川普", 10);
+        PersonForExcel p5 = new PersonForExcel("金正恩", 66);
 
         System.out.println("before p1 : " + p1);
         System.out.println("before p2 : " + p2);
