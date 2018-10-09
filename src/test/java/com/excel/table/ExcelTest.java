@@ -28,13 +28,19 @@ public class ExcelTest {
 
 
     /**
-     * 测试点：决策表的使用
+     * 测试点：决策表的加载文件使用
+     * java.lang.RuntimeException: Unable to get LastModified for ClasspathResource
+     * Caused by: java.io.FileNotFoundException: '/Users/lcc/IdeaProjects/drools_test/target/classes/com/drools/excel/table/test1/personAge.xlsx'
+     * cannot be opened because it does not exist
+     *
+     * 未解决
      */
     @Test
     public  void excel0() {
         DecisionTableConfiguration dtableconfiguration = KnowledgeBuilderFactory.newDecisionTableConfiguration();
-        dtableconfiguration.setInputType(DecisionTableInputType.XLSX);//枚举  表示执行的是xls，当然还有一种csv的
-        String filePath = ExcelTest.class.getClassLoader().getResource("com/drools/excel/table/test1/personAge.xlsx").getPath();
+        dtableconfiguration.setInputType(DecisionTableInputType.XLS);//枚举  表示执行的是xls，当然还有一种csv的
+        String filePath = ExcelTest.class.getClassLoader().getResource("personAge.xlsx").getPath();
+//        String filePath = ExcelTest.class.getClassLoader().getResource("com.drools.excel.table.test1.personAge.xlsx").getPath();
         System.out.println("文件路径"+filePath);
         KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
         Resource resource = ResourceFactory      //add方法  *添加一个给定的资源类型的资源,使用ResourceConfiguration提供

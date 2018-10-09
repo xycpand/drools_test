@@ -73,9 +73,12 @@
     </kbase>
 
 
-    <!--DSL买票-->
+    <!--领域语言转换  DSL买票-->
     <kbase name="TicketWithDSLKB" packages="com.drools.domain.language.dsl.test1">
         <ksession name="TicketWithDSLKS"/>
+    </kbase>
+    <kbase name="domainLanguage2" packages="com.drools.domain.language.dsl.test2">
+        <ksession name="domainLanguage2"/>
     </kbase>
 
 

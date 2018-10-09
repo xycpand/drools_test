@@ -16,7 +16,7 @@ public class DomainLanguageTest {
 
 
     /**
-     * 测试点：领域语言转换
+     * 测试点：领域语言转换，入门程序
      *
      * @throws InterruptedException
      */
@@ -59,6 +59,55 @@ public class DomainLanguageTest {
         ksession.dispose();
 
     }
+
+
+    /**
+     * 测试点：领域语言sql化
+     *
+     * @throws InterruptedException
+     */
+    @Test
+    public void languageTest1() throws InterruptedException {
+
+        KieContainer kc = KieServices.Factory.get().getKieClasspathContainer();
+        KieSession ksession = kc.newKieSession( "domainLanguage2" );
+
+        Customer a = new Customer( "刘德华", "Gold" );
+        Customer b = new Customer( "郭富城", "Platinum" );
+        Customer c = new Customer( "张学友", "Silver" );
+        Customer d = new Customer( "黎明", "Silver" );
+
+        Ticket t1 = new Ticket( a );
+        Ticket t2 = new Ticket( b );
+        Ticket t3 = new Ticket( c );
+        Ticket t4 = new Ticket( d );
+
+        ksession.insert( a );
+        ksession.insert( b );
+        ksession.insert( c );
+        ksession.insert( d );
+
+        ksession.insert( t1 );
+        ksession.insert( t2 );
+        ksession.insert( t3 );
+        ksession.insert( t4 );
+
+        ksession.fireAllRules();
+
+        try {
+            System.err.println( "[[ Sleeping 5 seconds ]]" );
+            Thread.sleep( 5000 );
+        } catch ( final InterruptedException e ) {
+            e.printStackTrace();
+        }
+        System.err.println( "[[ awake ]]" );
+        ksession.fireAllRules();
+        ksession.dispose();
+
+    }
+
+
+
 
 
 }
