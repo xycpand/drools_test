@@ -8,6 +8,10 @@ public class PersonForExcel {
     private int age;
     private String desc;
 
+    public PersonForExcel() {
+       super();
+    }
+
     public PersonForExcel(String name, int age) {
         this.name = name;
         this.age = age;

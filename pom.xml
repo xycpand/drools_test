@@ -33,6 +33,13 @@
             <artifactId>drools-core</artifactId>
             <version>${drools.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-decisiontables</artifactId>
+            <version>${drools.version}</version>
+            <scope>test</scope>
+        </dependency>
+
 
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
@@ -57,8 +64,6 @@
             <version>2.2.0</version>
             <scope>provided</scope>
         </dependency>
-
-
 
 
     </dependencies>

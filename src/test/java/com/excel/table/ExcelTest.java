@@ -4,6 +4,7 @@ import entity.Person;
 import entity.PersonForExcel;
 import org.drools.core.impl.InternalKnowledgeBase;
 import org.drools.core.impl.KnowledgeBaseFactory;
+import org.drools.decisiontable.SpreadsheetCompiler;
 import org.junit.Test;
 import org.kie.api.KieServices;
 import org.kie.api.io.Resource;
@@ -30,7 +31,7 @@ public class ExcelTest {
      * 测试点：决策表的使用
      */
     @Test
-    public  void execlDirectTest() {
+    public  void excel0() {
         DecisionTableConfiguration dtableconfiguration = KnowledgeBuilderFactory.newDecisionTableConfiguration();
         dtableconfiguration.setInputType(DecisionTableInputType.XLSX);//枚举  表示执行的是xls，当然还有一种csv的
         String filePath = ExcelTest.class.getClassLoader().getResource("com/drools/excel/table/test1/personAge.xlsx").getPath();
@@ -55,25 +56,25 @@ public class ExcelTest {
     @Test
     public  void excel1() {
 //        //把excel翻译成drl文件
-//        SpreadsheetCompiler compiler = new SpreadsheetCompiler();
-//        String drl = compiler.compile(ResourceFactory.newClassPathResource(RULES_PATH + File.separator + "rule.xls", "UTF-8"), "rule-table");
-//        System.out.println(drl);
-//        Long start = System.currentTimeMillis();        //执行决策表
-//        try {
-//            // load up the knowledge base
-//            //
-//              KieServices ks = KieServices.Factory.get();
-//              KieContainer kContainer = ks.getKieClasspathContainer();
-//              KieSession kSession = kContainer.newKieSession("tablesKiession");
-//              Person person = new Person();
-//              person.setName("Tony");
-//              kSession.insert(person);
-//              kSession.fireAllRules();
-//              kSession.dispose();
-//        } catch (Throwable t) {
-//            t.printStackTrace();
-//        }
-//        System.out.println("COST:"+String.valueOf(System.currentTimeMillis()-start));
+        SpreadsheetCompiler compiler = new SpreadsheetCompiler();
+        String drl = compiler.compile(ResourceFactory.newClassPathResource("com/drools/excel/table/test1/personAge.xlsx", "UTF-8"), "rule-table");
+        System.out.println(drl);
+        Long start = System.currentTimeMillis();        //执行决策表
+        try {
+            // load up the knowledge base
+            //
+              KieServices ks = KieServices.Factory.get();
+              KieContainer kContainer = ks.getKieClasspathContainer();
+              KieSession kSession = kContainer.newKieSession("exceltest");
+              PersonForExcel person = new PersonForExcel();
+              person.setName("Tony");
+              kSession.insert(person);
+              kSession.fireAllRules();
+              kSession.dispose();
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
+        System.out.println("COST:"+String.valueOf(System.currentTimeMillis()-start));
 
 
 
